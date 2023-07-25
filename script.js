@@ -1,4 +1,4 @@
-function transformText() {
+document.getElementById("transform-button").addEventListener("click", function() {
     const inputText = document.getElementById("input-text").value;
     let outputText = "";
 
@@ -11,4 +11,4 @@ function transformText() {
     }
 
     document.getElementById("output-text").value = outputText;
-}
+});

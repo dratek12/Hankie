@@ -1,6 +1,6 @@
 // Funkce pro náhodné rozhodnutí, zda písmeno má být velké
 function isUpperCaseRandom() {
-    return Math.random() < 0.38; // 50% pravděpodobnost velkého písmena
+    return Math.random() < 0.50; // 50% pravděpodobnost velkého písmena
 }
 
 document.getElementById('input-form').addEventListener('submit', event => {

@@ -6,7 +6,6 @@ body {
     max-width: 50rem;
     margin: 0 auto;
     padding: 0 1rem;
-    background-color: #262626; /* Tmavé pozadí */
 }
 
 a {
@@ -42,6 +41,14 @@ button {
     border: 0.125rem solid white;
 }
 
-a:hover {
-    color: #ccccff; /* Barva odkazů po najetí myší v tmavém režimu */
+@media (prefers-color-scheme: light) {
+    html {
+        filter: invert(1); /* Inverze barev pro světlý režim */
+    }
+    
+    /* Invertování obrazu nepodporuje všechny elementy stejně, takže tyto prvky budou ručně obnoveny do původních barev */
+    img,
+    video {
+        filter: invert(1);
+    }
 }

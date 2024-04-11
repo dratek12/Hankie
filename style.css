@@ -69,7 +69,7 @@ button {
     }
     
     body {
-        background-color: white; /* Barva pozadí pro světlý režim */
+        background-color: #cecece; /* Barva pozadí pro světlý režim */
         color: black; /* Barva textu pro světlý režim */
     }
     

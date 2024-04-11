@@ -41,7 +41,7 @@ button {
     border: 0.125rem solid white;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light), (forced-colors: active) {
     html {
         filter: invert(1); /* Inverze barev pro světlý režim */
     }

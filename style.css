@@ -1,17 +1,33 @@
 html {
     font-family: sans-serif;
+    color: #e8e8ff; /* Barva textu v tmavém režimu */
 }
 
 body {
     max-width: 50rem;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 25px; /* Změněno z 0 na 25px */
+    background-color: black; /* Změněno z #262626 na black */
+    color: white; /* Barva textu v tmavém režimu */
+    font-size: 25px; /* Velikost písma */
+    position: relative; /* Zajistí, že absolutně pozicované prvky budou relativní k tělu stránky */
+}
+
+/* Tmavý box za obsahem stránky */
+.dark-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111; /* Tmavá barva boxu */
+    opacity: 0.5; /* Průhlednost boxu */
 }
 
 a {
     display: block;
     margin-bottom: 1.5rem;
-    color: #0000d4;
+    color: #e8e8ff; /* Barva odkazů v tmavém režimu */
 }
 
 label, button, output {
@@ -29,8 +45,8 @@ textarea, button {
 
 textarea {
     width: 100%;
-    border: 0.125rem solid black;
-    margin-bottom: 1rem;
+    border: 0.125rem solid white; /* Barva ohraničení textového pole v tmavém režimu */
+    background-color: #262626; /* Barva pozadí pro textové pole v tmavém režimu */
 }
 
 button {
@@ -41,15 +57,24 @@ button {
     border: 0.125rem solid white;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light), (forced-colors: active) {
     html {
-        background-color: #262626;
+        filter: invert(1); /* Inverze barev pro světlý režim */
     }
-    a {
-        color: #e8e8ff;
+    
+    /* Invertování obrazu nepodporuje všechny elementy stejně, takže tyto prvky budou ručně obnoveny do původních barev */
+    img,
+    video {
+        filter: invert(1);
     }
-    textarea {
-        border-color: white;
-        background-color: #262626;
+    
+    body {
+        background-color: white; /* Barva pozadí pro světlý režim */
+        color: black; /* Barva textu pro světlý režim */
+    }
+    
+    .dark-box {
+        background-color: #111; /* Tmavá barva boxu v světlém režimu */
+        opacity: 0.5; /* Průhlednost boxu v světlém režimu */
     }
 }

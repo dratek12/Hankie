@@ -41,15 +41,27 @@ button {
     border: 0.125rem solid white;
 }
 
+/* Společné styly pro světlý i tmavý režim */
+html {
+    background-color: white; /* Výchozí pozadí */
+}
+
+a {
+    color: #0000d4; /* Barva odkazů */
+}
+
+textarea {
+    border-color: black; /* Barva ohraničení textového pole */
+}
+
 @media (prefers-color-scheme: dark) {
     html {
-        background-color: #262626;
+        background-color: #262626; /* Pozadí pro tmavý režim */
     }
     a {
-        color: #e8e8ff;
+        color: #e8e8ff; /* Barva odkazů v tmavém režimu */
     }
     textarea {
-        border-color: white;
-        background-color: #262626;
+        background-color: #262626; /* Barva pozadí pro textové pole v tmavém režimu */
     }
 }

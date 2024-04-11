@@ -47,6 +47,8 @@ textarea {
     width: 100%;
     border: 0.125rem solid white; /* Barva ohraničení textového pole v tmavém režimu */
     background-color: #262626; /* Barva pozadí pro textové pole v tmavém režimu */
+    font-size: 10px; /* Velikost písma v textovém poli */
+    color: black; /* Barva textu v textovém poli */
 }
 
 button {

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let textOutput = '';
         textArray.forEach((character, index) => {
             if (character === '\n') {
-                textOutput += '<br>'; // Pokud je znak nového řádku, vložíme HTML značku <br>
+                textOutput += '\n'; // Použití escape sekvence pro nový řádek
             } else {
                 if (isUpperCaseRandom()) {
                     textOutput += character.toUpperCase();
@@ -29,18 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        document.getElementById('text-output').innerHTML = textOutput; // Použití innerHTML pro zpracování HTML značek
+        document.getElementById('text-output').textContent = textOutput; // Změna použití na textContent
     });
     
     const textOutput = document.getElementById('text-output');
     
     textOutput.addEventListener('click', function() {
-        copyToClipboard(textOutput.innerHTML); // Použití innerHTML pro kopírování formátovaného textu
+        copyToClipboard(textOutput.textContent);
     });
     
     function copyToClipboard(text) {
         const tempTextArea = document.createElement('textarea');
-        tempTextArea.value = text;
+        tempTextArea.value = text.replace(/<br>/g, '\n'); // Odstranění HTML značky <br>
         tempTextArea.setAttribute('readonly', '');
         tempTextArea.style.position = 'absolute';
         tempTextArea.style.left = '-9999px'; // Přesuneme mimo obrazovku, ale stále je to přístupné
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         textOutput.textContent = 'Copied!'; // Přidáme zprávu "Copied!"
         setTimeout(function() {
-            textOutput.innerHTML = text; // Použití původního textu
+            textOutput.textContent = text; // Použití původního textu
         }, 1500);
     }
 });

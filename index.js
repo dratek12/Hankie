@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Vybrání textové oblasti po načtení stránky
+    const textarea = document.getElementById('text-input');
+    textarea.focus(); // Přesunutí fokusu na textovou oblast
+
     // Funkce pro náhodné rozhodnutí, zda písmeno má být velké
     function isUpperCaseRandom() {
         const probability = Math.random(); // Náhodné číslo mezi 0 a 1

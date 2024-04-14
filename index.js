@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.execCommand('copy');
         document.body.removeChild(tempTextArea);
         
-        textOutput.textContent = 'Copied!';
+        textOutput.textContent = 'Copied!'; // Přidáme zprávu "Copied!"
         setTimeout(function() {
             textOutput.textContent = text; // Použití původního textu
         }, 1500);

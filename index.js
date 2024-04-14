@@ -19,19 +19,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const textArray = textInput.split('');
         let textOutput = '';
         textArray.forEach((character, index) => {
-            if (isUpperCaseRandom()) {
-                textOutput += character.toUpperCase();
+            if (character === '\n') {
+                textOutput += '<br>'; // Pokud je znak nového řádku, vložíme HTML značku <br>
             } else {
-                textOutput += character.toLowerCase();
+                if (isUpperCaseRandom()) {
+                    textOutput += character.toUpperCase();
+                } else {
+                    textOutput += character.toLowerCase();
+                }
             }
         });
-        document.getElementById('text-output').textContent = textOutput; // Změna použití na textContent
+        document.getElementById('text-output').innerHTML = textOutput; // Použití innerHTML pro zpracování HTML značek
     });
     
     const textOutput = document.getElementById('text-output');
     
     textOutput.addEventListener('click', function() {
-        copyToClipboard(textOutput.textContent);
+        copyToClipboard(textOutput.innerHTML); // Použití innerHTML pro kopírování formátovaného textu
     });
     
     function copyToClipboard(text) {
@@ -47,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         textOutput.textContent = 'Copied!'; // Přidáme zprávu "Copied!"
         setTimeout(function() {
-            textOutput.textContent = text; // Použití původního textu
+            textOutput.innerHTML = text; // Použití původního textu
         }, 1500);
     }
 });

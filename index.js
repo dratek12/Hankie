@@ -35,13 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function copyToClipboard(text) {
-        navigator.clipboard.writeText(text).then(function() {
-            textOutput.textContent = 'Copied!';
-            setTimeout(function() {
-                textOutput.textContent = text; // Použití původního textu
-            }, 1500);
-        }, function(err) {
-            console.error('Failed to copy: ', err);
-        });
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = text;
+        tempTextArea.setAttribute('readonly', '');
+        tempTextArea.style.position = 'absolute';
+        tempTextArea.style.left = '-9999px'; // Přesuneme mimo obrazovku, ale stále je to přístupné
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempTextArea);
+        
+        textOutput.textContent = 'Copied!';
+        setTimeout(function() {
+            textOutput.textContent = text; // Použití původního textu
+        }, 1500);
     }
 });

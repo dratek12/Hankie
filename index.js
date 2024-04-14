@@ -26,10 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function copyToClipboard(text) {
-        // Nahrazení mezer znakem nového řádku
-        const textWithNewlines = text.replace(/ /g, '\n');
-
-        navigator.clipboard.writeText(textWithNewlines).then(function() {
+        navigator.clipboard.writeText(text).then(function() {
             textOutput.textContent = 'Copied!';
             setTimeout(function() {
                 textOutput.textContent = text;

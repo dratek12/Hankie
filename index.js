@@ -25,17 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
         copyToClipboard(textOutput.textContent);
     });
     
-function copyToClipboard(text) {
-    // Nahrazení mezer znakem nového řádku
-    const textWithNewlines = text.replace(/ /g, '\n');
+    function copyToClipboard(text) {
+        // Nahrazení mezer znakem nového řádku
+        const textWithNewlines = text.replace(/ /g, '\n');
 
-    navigator.clipboard.writeText(textWithNewlines).then(function() {
-        textOutput.textContent = 'Copied!';
-        setTimeout(function() {
-            textOutput.textContent = text;
-        }, 1500);
-    }, function(err) {
-        console.error('Failed to copy: ', err);
-    });
-}
-
+        navigator.clipboard.writeText(textWithNewlines).then(function() {
+            textOutput.textContent = 'Copied!';
+            setTimeout(function() {
+                textOutput.textContent = text;
+            }, 1500);
+        }, function(err) {
+            console.error('Failed to copy: ', err);
+        });
+    }
+});

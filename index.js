@@ -35,13 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const textOutput = document.getElementById('text-output');
     
     textOutput.addEventListener('click', function() {
-        copyToClipboard(textOutput.textContent);
+        copyToClipboard(textOutput.textContent); // Změna použití na textContent
     });
     
     function copyToClipboard(text) {
         const tempTextArea = document.createElement('textarea');
-        const cleanText = text.replace(/<br>/g, '\n'); // Odstranění HTML značky <br>
-        tempTextArea.value = cleanText;
+        tempTextArea.value = text.replace(/<br>/g, ''); // Odstranění HTML značky <br>
         tempTextArea.setAttribute('readonly', '');
         tempTextArea.style.position = 'absolute';
         tempTextArea.style.left = '-9999px'; // Přesuneme mimo obrazovku, ale stále je to přístupné

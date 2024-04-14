@@ -38,3 +38,4 @@ function copyToClipboard(text) {
         console.error('Failed to copy: ', err);
     });
 }
+

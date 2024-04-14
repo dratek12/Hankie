@@ -59,6 +59,10 @@ button {
     border: 0.125rem solid white;
 }
 
+#text-output {
+    white-space: pre-line; /* Zachová formátování nových řádků */
+}
+
 @media (prefers-color-scheme: light), (forced-colors: active) {
     html {
         filter: invert(1); /* Inverze barev pro světlý režim */

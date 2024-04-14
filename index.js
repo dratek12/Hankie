@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function copyToClipboard(text) {
         const tempTextArea = document.createElement('textarea');
-        tempTextArea.value = text.replace(/<br>/g, '\n'); // Odstranění HTML značky <br>
+        const cleanText = text.replace(/<br>/g, '\n'); // Odstranění HTML značky <br>
+        tempTextArea.value = cleanText;
         tempTextArea.setAttribute('readonly', '');
         tempTextArea.style.position = 'absolute';
         tempTextArea.style.left = '-9999px'; // Přesuneme mimo obrazovku, ale stále je to přístupné
